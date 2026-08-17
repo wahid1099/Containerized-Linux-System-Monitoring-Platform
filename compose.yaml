@@ -1,0 +1,30 @@
+services:
+
+  dashboard:
+    build: ./dashboard
+    container_name: dashboard
+    ports:
+      - "9090:80"
+    depends_on:
+      - collector
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+
+  collector:
+    build: ./collector
+    container_name: collector
+    expose:
+      - "6000"
+    volumes:
+      - metrics-data:/data
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+
+networks:
+  monitoring-network:
+    driver: bridge
+
+volumes:
+  metrics-data:
