@@ -161,3 +161,4 @@ Compose defines all services, networks, volumes, ports, and dependencies in one 
 
 **Restart policy**
 Both services use `restart: unless-stopped`. Docker automatically restarts the container if it crashes or if the Docker daemon restarts, but leaves it stopped if it was manually stopped.
+# Docker-Monitoring-Dashboard
